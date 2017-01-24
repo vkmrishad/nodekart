@@ -1,0 +1,13 @@
+{
+  "name": "nodekart",
+  "version": "1.0.0",
+  "description": "Simple E-commerce website using Node.js+MongoBD",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohammed Rishad",
+  "license": "ISC",
+  "dependencies": {
+  }
+}

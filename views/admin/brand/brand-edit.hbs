@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Nodekart - Admin | Edit Brand</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../../../bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../../../dist/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../../../dist/css/custom.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../../../../plugins/select2/select2.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../../../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../../../dist/css/skins/_all-skins.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <script src="../../../../plugins/jQuery/jQuery-2.1.4.js"></script>
+  <script src="../../../../dist/formValidation/formValidation.min.js"></script>
+  <script src="../../../../dist/formValidation/framework/bootstrap.min.js"></script>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  {{> admin/header}}
+  <!-- Left side column. contains the logo and sidebar -->
+  {{> admin/sidebar-left}}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Edit Brand
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="../../../../"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="../../../../admin/brands">Brand</a></li>
+        <li class="active">Edit</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-xs-12">
+
+          {{#if error_msg}}
+            <div id="flashMessage" class="alert alert-danger">{{error_msg}}</div>
+          {{/if }}
+          {{#if success_msg}}
+            <div id="flashMessage" class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+
+  <div class="box">
+     <h1></h1>
+        <form id="basicBootstrapForm" class="form-horizontal" method="post" action="">
+         <div class="row">
+            <div class="col-xs-12">
+              <div class="box-body">
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Brand Name <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="brand_name" value="{{brand.brand_name}}">
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Brand Slug <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-sm-4">
+                    <input type="text" class="form-control" name="brand_slug" value="{{brand.brand_slug}}">
+                  </div>
+                </div><br><br>
+
+                 <div class="box-header with-border">
+                          <h3 class="box-title">Brand Logo</h3>
+                      </div><br><br>
+
+
+
+                      <div class="form-group">
+                        <div class="col-sm-4">
+                          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Upload Logo</button>
+                        </div>
+                      </div>
+
+                      <div class="panel-body">
+
+                      <div class="img_holder">
+                        <script>
+                        function ConfirmDelete(url) {
+                        if (confirm("Are you sure you want to delete this?")) {
+                          window.open(url,"_self");
+                        }
+                        else {false;}
+                        }
+                        </script>
+
+                      <div class="img_holder">
+                       <ul>
+
+
+                            <script type="text/javascript">
+                              if ("{{brand.brand_img}}" != ""  )         
+                              {
+                                  document.write('<li><img src="/uploads/brands/{{brand.brand_img}}" width="200" height="200"><div class="img_trash"><button class="btn btn-danger" Onclick="return ConfirmDelete(\'/brand/deleteimage/{{brand._id}}/{{brand.brand_img}}\');"><i class="fa fa-trash"></i> Delete</button></div></li>')
+                              }
+                              else
+                              {document.write('No Logo Found!')}
+
+                             </script>
+
+                       </ul>
+                      </div>
+
+                  </div>
+
+
+                 </div><br> 
+
+              <br>
+
+             </div>
+              <!-- /.box-body -->
+            </div>
+          </div>
+              <div class="box-footer">
+                <a href="../../../../admin/brands" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-info pull-right">Update</button>
+              </div>
+              <!-- /.box-footer -->
+        </form>
+
+            <!-- myModal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form method="post" id="upload_form" name="upload_form" action="/admin/brand/upload/{{brand._id}}" enctype="multipart/form-data">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Upload Logo</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="form-group">
+                    <span class="btn btn-info btn-file">
+                      Select file<input type="file" name="brand_img" id="brand_img">
+                    </span>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" id="saveButton" name="saveButton" class="btn btn-primary">Upload</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          </div>
+          <!-- /.box -->
+      </div>
+
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{{> admin/footer}}
+
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.0
+<script src="../../../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+-->
+<script>
+$(document).ready(function() {
+
+
+    $('#basicBootstrapForm').formValidation({
+        framework: 'bootstrap',
+        excluded: [':disabled'],
+        icon: {
+           valid: 'fa fa-check',
+           invalid: 'fa fa-times',
+           validating: 'fa fa-refresh'
+        },
+        fields: {
+           brand_name: {
+                validators: {
+                    notEmpty: {
+                        message: 'Brand name is required'
+                    }
+                }
+            },
+
+            brand_slug: {
+                validators: {
+                    notEmpty: {
+                        message: 'Brand slug is required'
+                    },
+                    stringCase: {
+                        message: 'Must be in Lower Case',
+                        'case': 'lower'
+                    }
+                }
+            }
+
+        }
+    })
+
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#upload_form').formValidation({
+        framework: 'bootstrap',
+        icon: {
+              valid: 'fa fa-check',
+              invalid: 'fa fa-times',
+              validating: 'fa fa-refresh'
+        },
+        fields: {
+            brand_img: {
+                validators: {
+                  notEmpty: {
+                      message: 'Select a File'
+                  },
+                    file: {
+                        extension: 'jpeg,jpg,png',
+                        type: 'image/jpeg,image/png',
+                        maxSize: 2097152,   // 2048 * 1024
+                        message: 'The selected file is not valid'
+                 }
+                }
+            }
+        }
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+      setTimeout(function() {
+        $('#flashMessage').fadeOut('fast');
+      }, 4000); // <-- time in milliseconds
+});
+</script>
+
+<!-- Bootstrap 3.3.6 -->
+<script src="../../../../bootstrap/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="../../../../plugins/select2/select2.full.min.js"></script>
+<!-- FastClick -->
+<script src="../../../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../../../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../../../dist/js/demo.js"></script>
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+
+    //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green'
+    });
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker();
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker();
+
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
+  });
+</script>
+</body>
+</html>

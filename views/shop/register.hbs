@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Customer Register</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,700,400italic,700italic&amp;subset=latin,vietnamese">
+
+    <link rel="stylesheet" href="../../../../front-end/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../../../../front-end/css/plugins.css">
+
+    <link rel="stylesheet" href="../../../../front-end/css/styles.css">
+
+    <script src="../../../../front-end/js/vendor.js"></script>
+
+    <script>
+        window.SHOW_LOADING = true;
+    </script>
+
+</head>
+
+<style>
+#main{
+    margin-bottom: 0px;
+}
+button.button{
+    padding: 0 20px;
+    height: 38px;
+    background-color: #ffa200;
+    color: #fff;
+    border: none;
+    float: right;
+}
+
+button.button:hover{
+    background-color: #e1e1e1;
+    color: #000;
+}
+
+.content{
+  color: #000;
+}
+h2{
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+</style>
+
+<body>
+
+
+    <div id="wrapper" class="main-wrapper ">
+
+        {{> shop/header}}
+        <!-- /.awe-menubar-header -->
+
+
+        <div id="main">
+
+            <div class="main-header background background-image-heading-contact">
+                <div class="container">
+                    <h1>Register</h1>
+                </div>
+            </div>
+
+
+            <div id="breadcrumb">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li><a href="../../../../">Home</a>
+                        </li>
+                        <li class="active"><span>Register</span>
+                        </li>
+                    </ol>
+
+                </div>
+            </div>
+
+
+            <div class="contact-wrapper">
+
+
+                <div class="margin-bottom-100">
+                    <div class="container">
+          {{#if success_msg}}
+            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <i class="fa fa-check-square"></i>
+                                <span>{{success_msg}}</span>
+            </div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <i class="fa fa-exclamation-triangle"></i>
+                                <span>{{error_msg}}</span>
+            </div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <i class="fa fa-exclamation-triangle"></i>
+                                <span>{{error}}</span>
+            </div>
+          {{/if}}
+
+          <div class="row">
+
+                    <div class=" col-sm-6" >
+                <div class="content" >
+                    <h2>Create an account</h2>
+                    <p>If you don't have an account with us, please create one.</p>
+          <form method="post" action="/register">
+            
+                <div class="form-group">
+                  <label>First Name <span style="color:red;font-size:16px;">*</span></label>
+                  <input type="text" class="form-control" name="fname">
+                </div>
+
+                <div class="form-group">
+                  <label>Last Name <span style="color:red;font-size:16px;">*</span></label>
+                  <input type="text" class="form-control" name="lname">
+                </div>
+
+                <div class="form-group">
+                  <label>Username <span style="color:red;font-size:16px;">*</span></label>
+                  <input type="text" class="form-control" name="username">
+                </div>
+
+                <div class="form-group">
+                  <label>Email <span style="color:red;font-size:16px;">*</span></label>
+                  <input type="text" class="form-control" name="email">
+                </div>
+
+                <div class="form-group">
+                  <label>Password <span style="color:red;font-size:16px;">*</span></label>
+                  <input type="password" class="form-control"  name="password">
+                </div>
+
+                <div class="form-group">
+                  <label>Comfirm Password <span style="color:red;font-size:16px;">*</span></label>
+                  <input type="password" class="form-control"  name="cpassword">
+                </div>
+                      
+                   
+                    
+        <div class="buttons-set">
+                    <button type="submit" class="button" title="Login"><span><span>Register</span></span></button>
+                </div>
+
+                <br><br>
+
+                </form> 
+            </div>
+                            <!-- /.col-md-6 -->
+                        </div>
+             
+
+                     <div class=" col-sm-6" style="height: 280px;">
+                <div class="content" style="height: 221px;">
+                    <h2>Already Registered</h2>
+                    <p>If you have an account with us, please log in.</p>
+          <form method="post" action="/login">
+            
+                <div class="form-group">
+                  <label>Username/Email <span style="color:red;font-size:16px;">*</span></label>
+                  <input type="text" class="form-control" name="username">
+                </div>
+
+                <div class="form-group">
+                  <label>Password <span style="color:red;font-size:16px;">*</span></label>
+                  <input type="password" class="form-control"  name="password">
+                </div>
+                      
+                   
+                    
+        <div class="buttons-set">
+                    <a href="#" class="f-left">Forgot Your Password?</a>
+                    <button type="submit" class="button" title="Login"><span><span>Login</span></span></button>
+                </div>
+
+                </form> 
+            </div>
+                            <!-- /.col-md-6 -->
+
+
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container -->
+                </div>
+                <!-- /.margin-bottom-100 -->
+
+            </div>
+            <!-- /.contact-wrapper -->
+
+        </div>
+
+
+        {{> shop/footer}}
+        <!-- /footer -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+    <script src="../../../../front-end/js/jquery-ui.min.1.11.4.js"></script>
+
+    <script src="../../../../front-end/js/plugins.js"></script>
+
+    <script src="../../../../front-end/js/main.js"></script>
+
+    <script src="../../../../front-end/js/docs.js"></script>
+
+</body>
+
+</html>

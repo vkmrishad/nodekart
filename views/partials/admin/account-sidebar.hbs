@@ -1,0 +1,39 @@
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <script>
+          if ("{{user.avatar}}" != "")
+          {
+
+          document.write('<img style="max-width:216px;height:216px;" src="../../../../uploads/users/{{user.avatar}}" class="img-circle" alt="User Image">')
+
+          }
+          else
+          {
+
+          document.write('<img style="max-width:216px;height:216px;" src="../../../../dist/img/avatar.jpg" class="img-circle" alt="User Image">')
+
+          }
+          </script>
+
+          <br><br>
+
+              <h3 class="profile-username text-center">{{user.fname}}</h3>
+
+              <p class="text-muted text-center">@{{user.username}}</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <a class="current" href="../../../../admin/account" ><center><b>Account</b></center></a>
+                </li>
+                <li class="list-group-item">
+                  <a class="current" href="../../../../admin/account/edit" ><center><b>Edit Account</b></center></a>
+                </li>
+                <li class="list-group-item">
+                  <a href="../../../../admin/account/change-password" ><center><b>Change Password</b></center></a>
+                </li>
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->

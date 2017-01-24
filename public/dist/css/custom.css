@@ -1,0 +1,14 @@
+
+.img_holder li {
+    float: left;
+    display: block;
+    width: 220px;
+    padding: 8px;
+    margin: 15px;
+    border: 2px solid #999;
+    border-radius: 4px;
+}
+.img_trash {
+    padding: 10px 15px 3px 15px;
+    text-align: center;
+}

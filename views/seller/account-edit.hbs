@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NodeKart - Seller | Edit Account</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../../../dist/font-awesome/css/font-awesome.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <script src="../../../../plugins/jQuery/jQuery-2.1.4.js"></script>
+
+  <script src="../../../../dist/formValidation/formValidation.min.js"></script>
+  <script src="../../../../dist/formValidation/framework/bootstrap.min.js"></script>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  {{> seller/header}}
+  <!-- Left side column. contains the logo and sidebar -->
+  {{> seller/sidebar-left}}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="min-height: 1126px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Edit Account
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="../../../../seller"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="../../../../seller/account"><i class="fa fa-dashboard"></i> Account</a></li>
+        <li class="active">Edit Account</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-md-3">
+
+         {{> seller/account-sidebar}}
+
+        </div>
+        <!-- /.col -->
+        <div class="col-md-8">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <!-- form start -->
+            <form id="basicBootstrapForm" class="form-horizontal" method="post" action="">
+              <div class="box-body">
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Company Name</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="company" value="{{user.company}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">First Name</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="fname" value="{{user.fname}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Middle Name</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="mname" value="{{user.mname}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Last Name</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="lname" value="{{user.lname}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Username</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" value="{{user.username}}" disabled>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Email</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control"  value="{{user.email}}" disabled>
+                  </div>
+                </div><br><br>
+
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Address Line 1</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="address1" value="{{user.address1}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Address Line 2</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control"  name="address2" value="{{user.address2}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Address Line 3</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="address3" value="{{user.address3}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">City/Town</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="place" value="{{user.place}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Landmark</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="landmark" value="{{user.landmark}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">District</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="district" value="{{user.district}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">State</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="state" value="{{user.state}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Country</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="country" value="{{user.country}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Pincode</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control"  name="pin" value="{{user.pin}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Phone Number</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" name="lnumber" value="{{user.lnumber}}" >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Mobile Number</label>
+
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control"  name="mnumber" value="{{user.mnumber}}" >
+                  </div>
+                </div>
+
+              </div>
+              <br><br>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <a href="../../../../account" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-info pull-right">Update</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  {{> seller/footer }}
+  
+</div>
+<!-- ./wrapper -->
+
+<!--
+<script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+-->
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+
+<script>
+$(document).ready(function() {
+
+    $('#basicBootstrapForm').formValidation({
+        framework: 'bootstrap',
+        excluded: [':disabled'],
+        icon: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-times',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+            company: {
+                validators: {
+                    notEmpty: {
+                        message: 'Company name is required'
+                    }
+                }
+            },
+            fname: {
+                validators: {
+                    notEmpty: {
+                        message: 'First name is required'
+                    }
+                }
+            },
+
+            lname: {
+                validators: {
+                    notEmpty: {
+                        message: 'Last name is required'
+                    }
+                }
+            },
+
+            address1: {
+                validators: {
+                    notEmpty: {
+                        message: 'Address line 1 is required'
+                    }
+                }
+            },
+
+            district: {
+                validators: {
+                    notEmpty: {
+                        message: 'District is required'
+                    }
+                }
+            },
+
+            state: {
+                validators: {
+                    notEmpty: {
+                        message: 'State is required'
+                    }
+                }
+            },
+
+            country: {
+                validators: {
+                    notEmpty: {
+                        message: 'Country is required'
+                    }
+                }
+            },
+
+            pin: {
+                validators: {
+                    notEmpty: {
+                        message: 'Pincode is required'
+                    },
+                    zipCode: {
+                            country: 'IN',
+                            message: 'Not a valid postal code'
+                    }
+                }
+            },
+
+            mnumber: {
+                validators: {
+                    notEmpty: {
+                        message: 'Mobile number is required'
+                    },
+                    phone: {
+                        country: 'IN',
+                        message: 'Not a valid mobile number'
+                    }
+                }
+            }
+            
+
+        }
+    })
+
+});
+</script>
+
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
+</body>
+</html>

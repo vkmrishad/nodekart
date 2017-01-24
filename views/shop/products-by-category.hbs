@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{product.title}}'s Collection - Nodekart</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,700,400italic,700italic&amp;subset=latin,vietnamese">
+
+    <link rel="stylesheet" href="../../../../front-end/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../../../../front-end/css/plugins.css">
+
+    <link rel="stylesheet" href="../../../../front-end/css/styles.css">
+
+    <script src="../../../../front-end/js/vendor.js"></script>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+
+<!-- Product Load more -->
+
+    <script type='text/javascript'>
+
+    $(document).ready(function () {
+        size_li = $("#myList li").size();
+        x=12;
+        $('#myList li:lt('+x+')').show();
+        $('#loadMore').click(function () {
+        x= (x+1 <= size_li) ? x+1 : size_li;
+        $('#myList li:lt('+x+')').show();
+        });
+    });
+
+    </script>
+    <style type="text/css">
+    #myList li{ display:none;}
+    </style>
+
+    <script>
+        window.SHOW_LOADING = false;
+    </script>
+
+
+</head>
+
+
+<body>
+
+
+
+
+    <div id="wrapper" class="main-wrapper ">
+
+        {{> shop/header}}
+        <!-- /.awe-menubar-header -->
+
+
+        <div id="main">
+
+
+            <div id="breadcrumb">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li><a href="../../../../">Home</a>
+                        </li>
+                        <li><a href="../../../../products">Products</a>
+                        </li>
+                        <li><a href="../../../../products/{{product.slug}}">{{product.title}}</a>
+                        </li>
+                        <li class="active"><span>{{product.category}}</span>
+                        </li>
+                    </ol>
+
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-md-push-3">
+
+                        <div class="product-header-actions">
+                            <form action="" method="POST" class="form-inline">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="view-icons">
+                                            <a class="view-icon active"><span class="icon icon-th"></span></a>
+                                        </div>
+
+                                        <div class="view-count" style="font-size: 12px;text-transform: uppercase;">
+                                            <span><b>{{product.title}} {{category.category_name}} ( {{count}} )</b></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8 col-sm-6 col-xs-12">
+                                        <div class="form-show-sort">
+
+                                            <div class="form-group pull-right text-right">
+                                                <label for="p_sort_by">Sort By</label>
+                                                <select name="p_sort_by" id="p_sort_by" class="form-control input-sm">
+                                                    <option value="">Lastest</option>
+                                                    <option value="">Recommend</option>
+                                                </select>
+                                            </div>
+                                            <!-- /.form-group -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+                            </form>
+                        </div>
+                        <!-- /.product-header-actions -->
+
+
+                        <div class="products products-grid-wrapper">
+                            <div class="row">
+
+
+
+
+
+
+                                <ul id="myList" >
+
+                                 {{#each products}}
+
+                                  <li class="col-md-4 col-sm-4 col-xs-12">
+
+                                    <div class="product product-grid">
+                                        <div class="product-media">
+                                            <div class="product-thumbnail">
+                                                <a href="../../../../product/{{_id}}" title="">
+                                                    <img src="../../../../uploads/products/{{_id}}/{{image.[0].img}}" alt="" class="current">
+                                                    <img src="../../../../uploads/products/{{_id}}/{{image.[1].img}}" alt="">
+                                                </a>
+                                            </div>
+                                            <!-- /.product-thumbnail -->
+
+                                        </div>
+                                        <!-- /.product-media -->
+
+                                        <div class="product-body">
+                                            <h2 class="product-name">
+                                    <a href="../../../../product/{{_id}}" title="{{name}}">{{name}}</a>
+                                </h2>
+                                            <!-- /.product-product -->
+
+                                           <div class="product-category">
+                                                <span>Size : {{size}}</span>
+                                            </div>
+                                            <!-- /.product-category -->
+
+                                            <div class="product-price">
+
+                                                <span class="amount">&#8377; {{pricing.sale}}</span>
+
+                                            </div>
+                                            <!-- /.product-price -->
+                                        </div>
+                                        <!-- /.product-body -->
+                                    </div>
+                                    <!-- /.product -->
+
+                                </li>
+
+                                {{/each}}
+
+                              </ul>
+
+
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.products -->
+
+
+                      <div class="center">
+                                <span id="loadMore" class="btn btn-lg btn-dark btn-outline">View More</span>
+                        </div>
+
+
+                        <!-- ./pagination -->
+
+                    </div>
+                    <!-- /.col-* -->
+
+                    
+                    <div class="col-md-3 col-md-pull-9">
+                        <div id="shop-widgets-filters" class="shop-widgets-filters">
+
+                            <div id="widget-area" class="widget-area">
+
+                                <div class="widget woocommerce widget_product_categories">
+                                    <h3 class="widget-title">Categories</h3>
+
+                                    <ul>
+                                        {{#each categories}}
+                                        <li><a href="{{category_slug}}" title="">{{category_name}}</a>
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                                <!-- /.widget -->
+
+                            </div>
+
+                        </div>
+
+                        <div id="open-filters">
+                            <i class="fa fa-filter"></i>
+                            <span>Filter</span>
+                        </div>
+                    </div>
+                    <!-- /.col-* -->
+
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+
+            <script>
+                $(function() { aweProductSidebar(); });
+            </script>
+
+
+        </div>
+
+
+        {{> shop/footer}}
+        <!-- /footer -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+    <script src="../../../../front-end/js/jquery-ui.min.1.11.4.js"></script>
+
+    <script src="../../../../front-end/js/plugins.js"></script>
+
+    <script src="../../../../front-end/js/main.js"></script>
+
+    <script src="../../../../front-end/js/docs.js"></script>
+
+    <script src="../../../../front-end/js/cart.js"></script>
+
+
+
+</body>
+
+
+</html>

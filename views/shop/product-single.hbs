@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{single.name}}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,700,400italic,700italic&amp;subset=latin,vietnamese">
+
+    <link rel="stylesheet" href="../../../../front-end/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../../../../front-end/css/plugins.css">
+
+    <link rel="stylesheet" href="../../../../front-end/css/styles.css">
+
+    <script src="../../../../front-end/js/vendor.js"></script>
+
+    <script>
+        window.SHOW_LOADING = false;
+    </script>
+
+
+
+</head>
+
+<body>
+
+
+
+
+    <div id="wrapper" class="main-wrapper ">
+
+        {{> shop/header}}
+        <!-- /.awe-menubar-header -->
+
+
+        <div id="main">
+
+
+            <div id="breadcrumb">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li><a href="../../../../">Home</a>
+                        </li>
+                        <li><a href="../../../../products">Product</a>
+
+                        </li>
+                        <li class="active"><span>{{single.name}}</span>
+                        </li>
+                    </ol>
+
+                </div>
+            </div>
+
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-slider-wrapper thumbs-bottom">
+
+                            <div class="swiper-container product-slider-main">
+                                <div class="swiper-wrapper">
+
+                                {{#single.image}}
+
+                                    <div class="swiper-slide">
+                                        <div class="easyzoom easyzoom--overlay">
+                                            <a href="/uploads/products/{{../single._id}}/{{img}}" title="">
+                                                <img src="/uploads/products/{{../single._id}}/{{img}}" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                {{/single.image}}    
+
+                                    
+                                </div>
+
+                                <div class="swiper-button-prev"><i class="fa fa-chevron-left"></i>
+                                </div>
+                                <div class="swiper-button-next"><i class="fa fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            <!-- /.swiper-container -->
+
+                            <div class="swiper-container product-slider-thumbs">
+                                <div class="swiper-wrapper">
+
+                                {{#single.image}}
+
+
+                                    <div class="swiper-slide">
+                                        <img src="/uploads/products/{{../single._id}}/{{img}}" alt="">
+                                    </div>
+
+                                {{/single.image}}
+
+                                    
+                                </div>
+                            </div>
+                            <!-- /.swiper-container -->
+
+                        </div>
+                        <!-- /.product-slider-wrapper -->
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="product-details-wrapper">
+                            <h2 class="product-name">{{single.name}}</h2>
+                            <!-- /.product-name -->
+
+                            <div class="product-status">
+                              
+                                <!-- Product Stock-->
+                    <script>
+                      if ({{single.pricing.stock}} <= 0 )
+                     { document.write('<td class="center"><span class="label label-danger">Out Of Stock</span></td>')}
+                     else if ({{single.pricing.stock}} >= 10 )
+                     { document.write('<td class="center"><span class="label label-success">In Stock</span></td>')}
+                     else if ({{single.pricing.stock}} < 10 )
+                     {document.write('<td class="center"><span class="label label-warning">Low Stock</span></td>')}
+                    </script>
+                                <br><br>
+                                <span>SKU ID : {{single.sku}}</span>
+                                <br>
+                                <span>Size : {{single.size}}</span>
+                                <br>
+                                <span>Seller : {{seller.company}}</span>
+                            </div>
+                            <!-- /.product-status -->
+
+                            <!--
+
+                            <div class="product-stars">
+                                <span class="rating">
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                </span>
+                            </div>
+                            -->
+                            <!-- /.product-stars -->
+
+                            <div class="product-description">
+                              {{{single.details.short_description}}}
+                            </div>
+                            <!-- /.product-description -->
+
+
+                            <div class="product-actions-wrapper">
+                                <!-- /.form -->
+
+                                <div class="product-list-actions">
+                                    <span class="product-price">
+                            <span class="amount">&#8377; {{single.pricing.sale}}</span>
+                                    </span><br><br>
+                                    <!-- /.product-price -->
+
+                                    <!--
+
+                                    <script type="text/javascript">
+
+                                    function myFunction() {
+                                    var x = document.getElementById("p_size").value;
+                                    document.getElementById("selSize").innerHTML = '<a class="btn btn-lg btn-primary" addId="{{single._id}}" addSize="'+x+'">Add to cart</a>';
+                                    }
+
+                                    </script>
+
+                                    <div id="selSize">
+                                        <a class="btn btn-lg btn-primary">Add to cart</a>
+                                    </div>
+
+                                    -->
+
+                                    <a class="btn btn-lg btn-primary" addId="{{single._id}}" >Add to cart</a>
+
+                                </div>
+                                <!-- /.product-list-actions -->
+                            </div>
+                            <!-- /.product-actions-wrapper -->
+
+                        </div>
+                        <!-- /.product-details-wrapper -->
+                    </div>
+                </div>
+
+
+                <div class="product-details-left">
+                    <div role="tabpanel" class="product-details">
+                        <nav>
+                            <ul class="nav" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#product-description" data-toggle="tab">Description</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#product-infomation" data-toggle="tab">Additional Infomation</a>
+                                </li>
+                                <!--
+                                <li role="presentation">
+                                    <a href="#product-review" data-toggle="tab">Review <span>(2)</span></a>
+                                </li>
+                                -->
+                            </ul>
+                            <!-- /.nav -->
+                        </nav>
+                        <!-- /nav -->
+
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active"  id="product-description">
+                                {{{single.details.description}}}
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            <div role="tabpanel" class="tab-pane" id="product-infomation">
+                                <ul>
+                                    <li>
+                                        <span>Weight</span>
+                                        <span class="value">{{single.shipping.weight}}</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Length</span>
+                                        <span class="value">{{single.shipping.length}}</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Breadth</span>
+                                        <span class="value">{{single.shipping.breadth}}</span>
+                                    </li>
+
+                                    <li>
+                                        <span>Height</span>
+                                        <span class="value">{{single.shipping.height}}</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- /.tab-pane -->
+
+                            <div role="tabpanel" class="tab-pane" id="product-review">
+                                <h3>Review <span>(2)</span></h3>
+
+                                <ol class="product-review-list">
+                                    <li>
+                                        <h4 class="review-title">Goodale Rutledge Navy/White</h4>
+                                        <div class="rating small">
+                                            <span class="star"></span>
+                                            <span class="star"></span>
+                                            <span class="star"></span>
+                                            <span class="star"></span>
+                                            <span class="star"></span>
+                                        </div>
+
+                                        <div class="review-comment">
+                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                        </div>
+
+                                        <div class="review-meta">
+                                            <span>Posted by</span>
+                                            <a href="#" class="author">Join Doe</a>
+                                            <span>-</span>
+                                            <span>February 17, 2015</span>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <h4 class="review-title">The standard Lorem Ipsum passage, used since the 1500s </h4>
+                                        <div class="rating small">
+                                            <span class="star"></span>
+                                            <span class="star"></span>
+                                            <span class="star"></span>
+                                            <span class="star"></span>
+                                            <span class="star"></span>
+                                        </div>
+
+                                        <div class="review-comment">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                                                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                                mollit anim id est laborum.</p>
+                                        </div>
+
+                                        <div class="review-meta">
+                                            <span>Posted by</span>
+                                            <a href="#" class="author">Join Doe</a>
+                                            <span>-</span>
+                                            <span>February 17, 2015</span>
+                                        </div>
+                                    </li>
+                                </ol>
+                                <!-- /.product-review-list -->
+
+                                <h3>Add a review</h3>
+
+                                <form action="" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="reply-name">Name <sup>*</sup>
+                                                </label>
+                                                <input type="text" class="form-control" id="reply-name" placeholder="Name">
+                                            </div>
+                                            <!-- /.form-group -->
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="reply-email">Email <sup>*</sup>
+                                                </label>
+                                                <input type="email" class="form-control" id="reply-email" placeholder="Email">
+                                            </div>
+                                            <!-- /.form-group -->
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="reply-title">Title <sup>*</sup>
+                                        </label>
+                                        <input type="text" class="form-control" id="reply-title" placeholder="title">
+                                    </div>
+                                    <!-- /.form-group -->
+
+                                    <div class="form-group">
+                                        <label for="reply-text">Your review <sup>*</sup>
+                                        </label>
+                                        <textarea name="reply-text" class="form-control" id="reply-text" rows="7" placeholder="Your review"></textarea>
+                                    </div>
+                                    <!-- /.form-group -->
+
+                                    <div class="form-submit clearfix">
+                                        <div class="review-rating">
+                                            <span class="title">Your rating:</span>
+
+                                            <span class="rating small live">
+                                    <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            </span>
+
+                                        </div>
+
+                                        <div class="pull-right">
+                                            <button type="submit" class="submit btn btn-lg btn-default">Submit</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.form-submit -->
+                                </form>
+                                <!-- /form -->
+                            </div>
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- /.product-details-left -->
+
+            </div>
+
+            <script>
+                $(function() { aweProductRender(true); });
+            </script>
+
+        </div>
+
+
+        {{> shop/footer}}
+        <!-- /footer -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <script>
+        $(function() {
+            $('a[href="#login-popup"]').magnificPopup({
+                type:'inline',
+                midClick: false,
+                closeOnBgClick: false
+            });
+        });
+    </script>
+
+
+
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+    <script src="../../../../front-end/js/jquery-ui.min.1.11.4.js"></script>
+
+    <script src="../../../../front-end/js/plugins.js"></script>
+
+    <script src="../../../../front-end/js/main.js"></script>
+
+    <script src="../../../../front-end/js/docs.js"></script>
+
+    <script src="../../../../front-end/js/cart.js"></script>
+
+</body>
+
+
+</html>

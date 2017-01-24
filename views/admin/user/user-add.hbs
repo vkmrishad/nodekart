@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Nodekart - Admin | Add User</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../../../bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../../../dist/font-awesome/css/font-awesome.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../../../../plugins/select2/select2.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../../../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../../../dist/css/skins/_all-skins.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+  <script src="../../../../plugins/jQuery/jQuery-2.1.4.js"></script>
+
+  <script src="../../../../dist/formValidation/formValidation.min.js"></script>
+  <script src="../../../../dist/formValidation/framework/bootstrap.min.js"></script>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  {{> admin/header}}
+  <!-- Left side column. contains the logo and sidebar -->
+  {{> admin/sidebar-left}}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Add User
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="../../../../"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="../../../../admin/users">User</a></li>
+        <li class="active">Add</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <div class="row">
+        <div class="col-xs-12">
+
+          {{#if error_msg}}
+            <div id="flashMessage" class="alert alert-danger">{{error_msg}}</div>
+          {{/if }}
+          {{#if success_msg}}
+            <div id="flashMessage" class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+
+  <div class="box">
+     <h1></h1>
+        <form id="basicBootstrapForm" class="form-horizontal" method="post" action="">
+         <div class="row">
+            <div class="col-xs-12">
+              <div class="box-body">
+
+                <div class="box-header with-border">
+                    <h3 class="box-title">General</h3>
+                </div><br><br>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">First Name <span style="color:red;font-size:16px;">*</span> </label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="fname">
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Middle Name</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="mname">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Last Name <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="lname">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Status <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                   <div class="form-group">
+                    <div class="col-xs-4">
+                     <select name="status" class="form-control select2" style="width: 100%;">
+                       <option selected="selected" value="Active">Active</option>
+                       <option value="Blocked">Block</option>
+                     </select>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Role <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                   <div class="form-group">
+                    <div class="col-xs-4">
+                     <select name="role" class="form-control select2" style="width: 100%;">
+                       <option selected="selected" value="admin">Admin</option>
+                       <option value="seller">Seller</option>
+                       <option value="user">User</option>
+                     </select>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Username <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="username">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Email <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="email" class="form-control" name="email">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Password <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="password" class="form-control" name="password">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Confirm Password <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="password" class="form-control" name="cpassword">
+                  </div>
+                </div><br><br>
+
+                <div class="box-header with-border">
+                    <h3 class="box-title">Address</h3>
+                </div><br><br>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Address Line 1 <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="address1">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Address Line 2</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="address2">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Address Line 3</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="address3">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">City/Town</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="place">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Landmark</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="landmark">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">District <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="district">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">State <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="state">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Country <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="country">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Pincode <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="pin">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Phone Number</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="lnumber">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label  class="col-sm-2 control-label">Mobile Number <span style="color:red;font-size:16px;">*</span></label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="mnumber">
+                  </div>
+                </div><br><br>
+
+             </div>
+              <!-- /.box-body -->
+            </div>
+          </div>
+              <div class="box-footer">
+                <a href="../../../../admin/users" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-info pull-right">Submit</button>
+              </div>
+              <!-- /.box-footer -->
+        </form>
+          </div>
+          <!-- /.box -->
+      </div>
+
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+{{> admin/footer}}
+
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.0
+<script src="../../../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+-->
+<script>
+$(document).ready(function() {
+
+  FormValidation.Validator.securePassword = {
+        validate: function(validator, $field, options) {
+            var value = $field.val();
+            if (value === '') {
+                return true;
+            }
+
+            // Check the password strength
+            if (value.length < 8) {
+                return {
+                    valid: false,
+                    message: 'The password must be more than 8 characters long'
+                };
+            }
+
+
+            return true;
+        }
+    };
+
+
+    $('#basicBootstrapForm').formValidation({
+        framework: 'bootstrap',
+        excluded: [':disabled'],
+        icon: {
+              valid: 'fa fa-check',
+              invalid: 'fa fa-times',
+              validating: 'fa fa-refresh'
+        },
+        fields: {
+            fname: {
+                validators: {
+                    notEmpty: {
+                        message: 'First name is required'
+                    }
+                }
+            },
+
+            lname: {
+                validators: {
+                    notEmpty: {
+                        message: 'Last name is required'
+                    }
+                }
+            },
+
+            status: {
+                validators: {
+                    notEmpty: {
+                        message: 'Status is required'
+                    }
+                }
+            },
+
+            role: {
+                validators: {
+                    notEmpty: {
+                        message: 'Role is required'
+                    }
+                }
+            },
+
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: 'Username is required'
+                    }
+                }
+            },
+
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Email is required'
+                    },
+                    regexp: {
+                        regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+                        message: 'Not a valid email address'
+                    }
+                }
+            },
+
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'Password is required'
+                    },
+                    securePassword: {
+                        message: 'Password is not valid'
+                    }
+                }
+            },
+
+            cpassword: {
+                validators: {
+                    notEmpty: {
+                        message: 'Confirm password is required'
+                    },
+                    identical: {
+                    field: 'password',
+                    message: ' Confirm Password is not same'
+                    },
+                    securePassword: {
+                        message: 'Confirm password is not valid'
+                    }
+                },
+            },
+
+            address1: {
+                validators: {
+                    notEmpty: {
+                        message: 'Address line 1 is required'
+                    }
+                }
+            },
+
+            district: {
+                validators: {
+                    notEmpty: {
+                        message: 'District is required'
+                    }
+                }
+            },
+
+            state: {
+                validators: {
+                    notEmpty: {
+                        message: 'State is required'
+                    }
+                }
+            },
+
+            country: {
+                validators: {
+                    notEmpty: {
+                        message: 'Country is required'
+                    }
+                }
+            },
+
+            pin: {
+                validators: {
+                    notEmpty: {
+                        message: 'Pincode is required'
+                    },
+                    zipCode: {
+                            country: 'IN',
+                            message: 'Not a valid postal code'
+                    }
+                }
+            },
+
+            mnumber: {
+                validators: {
+                    notEmpty: {
+                        message: 'Mobile number is required'
+                    },
+                    phone: {
+                        country: 'IN',
+                        message: 'Not a valid mobile number'
+                    }
+                }
+            }
+            
+
+        }
+    })
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+      setTimeout(function() {
+        $('#flashMessage').fadeOut('fast');
+      }, 4000); // <-- time in milliseconds
+});
+</script>
+
+<!-- Bootstrap 3.3.6 -->
+<script src="../../../../bootstrap/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="../../../../plugins/select2/select2.full.min.js"></script>
+<!-- FastClick -->
+<script src="../../../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../../../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../../../dist/js/demo.js"></script>
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+
+    //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green'
+    });
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker();
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker();
+
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
+  });
+</script>
+</body>
+</html>

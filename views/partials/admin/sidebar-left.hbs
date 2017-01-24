@@ -1,0 +1,101 @@
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+
+   <!-- user  section form -->
+  <div class="user-panel">
+        <div class="pull-left image">
+
+          <script>
+          if ("{{user.avatar}}" != "")
+          {
+
+          document.write('<img style="max-width:50px;height:50px;" src="../../../../uploads/users/{{user.avatar}}" class="img-circle" alt="User Image">')
+
+          }
+          else
+          {
+
+          document.write('<img style="max-width:50px;height:50px;" src="../../../../dist/img/avatar.jpg" class="img-circle" alt="User Image">')
+
+          }
+          </script>
+          
+        </div>
+        <div class="pull-left info">
+          <p><a >@{{user.username}}</a></p>
+          <a><i class="fa fa-circle text-success"></i> Online</a><br>
+
+        </div>
+  </div>
+
+    <!-- search form -->
+    <form action="#" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search...">
+            <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+      </div>
+    </form>
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+
+  <ul class="sidebar-menu">
+    <li class="header">MAIN NAVIGATION</li>
+
+    <li class="treeview">
+       <a href="#">
+         <i class="fa fa-diamond"></i> <span>Brands</span> <i class="fa fa-angle-left pull-right"></i>
+       </a>
+     <ul class="treeview-menu">
+       <li><a href="../../../../admin/brands"><i class="fa fa-circle-o"></i>Brand List</a></li>
+       <li><a href="../../../../admin/brand/add"><i class="fa fa-circle-o"></i>Add Brand</a></li>
+     </ul>
+   </li>
+
+    <li class="treeview">
+       <a href="#">
+         <i class="fa fa-tags"></i> <span>Categories</span> <i class="fa fa-angle-left pull-right"></i>
+       </a>
+     <ul class="treeview-menu">
+       <li><a href="../../../../admin/categories"><i class="fa fa-circle-o"></i>Category List</a></li>
+       <li><a href="../../../../admin/category/add"><i class="fa fa-circle-o"></i>Add Category</a></li>
+     </ul>
+   </li>
+
+   <li class="treeview">
+     <a href="#">
+       <i class="fa fa-cubes"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i>
+     </a>
+     <ul class="treeview-menu">
+       <li><a href="../../../../admin/products"><i class="fa fa-circle-o"></i>Product List</a></li>
+       <li><a href="../../../../admin/product/add"><i class="fa fa-circle-o"></i>Add Product</a></li>
+     </ul>
+  </li>
+
+  <li class="treeview">
+     <a href="#">
+       <i class="fa fa-group"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
+     </a>
+   <ul class="treeview-menu">
+     <li><a href="../../../../admin/users"><i class="fa fa-circle-o"></i>User List</a></li>
+     <li><a href="../../../../admin/user/add"><i class="fa fa-circle-o"></i>Add User</a></li>
+   </ul>
+  </li>
+
+  <li class="treeview">
+      <a href="#">
+        <i class="fa fa-shopping-cart"></i> <span>Orders</span> <i class="fa fa-angle-left pull-right"></i>
+      </a>
+    <ul class="treeview-menu">
+      <li><a href="../../../../admin/orders"><i class="fa fa-circle-o"></i>Order List</a></li>
+      <li><a href="../../../../admin/order/add"><i class="fa fa-circle-o"></i>Add Order</a></li>
+    </ul>
+  </li>
+
+ </ul>
+</section>
+  <!-- /.sidebar -->
+</aside>
