@@ -1,7 +1,7 @@
 {
   "name": "nodekart",
   "version": "1.0.0",
-  "description": "Simple E-commerce website using Node.js+MongoBD",
+  "description": "Simple E-commerce website using Node.js + MongoBD",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,5 +9,20 @@
   "author": "Mohammed Rishad",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.0.0-rc.6",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express": "*",
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*"
   }
 }
